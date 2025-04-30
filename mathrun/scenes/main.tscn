@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkmt54wrjxx6y"]
+
+[ext_resource type="Texture2D" uid="uid://kynkpdq7whmo" path="res://assetsnew/player2-removebg-preview.png" id="1_fkrc5"]
+
+[node name="main" type="Node"]
+
+[node name="Player2-removebg-preview" type="Sprite2D" parent="."]
+position = Vector2(210, 323)
+texture = ExtResource("1_fkrc5")

@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpftw6uhudqk"]
+
+[ext_resource type="Script" uid="uid://bgim6qn5ai1y" path="res://cenas/enemy.gd" id="1_j8h1m"]
+[ext_resource type="Texture2D" uid="uid://s0c6cifgtsjf" path="res://assetsnew/Pixel SHMUP Free/spritesheet_enemy_1.png" id="1_mhh1f"]
+[ext_resource type="FontFile" uid="uid://5wbtgsib3sx8" path="res://assetsnew/font/perguntas.ttf" id="3_l26jj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncemp"]
+size = Vector2(43, 47)
+
+[sub_resource type="Animation" id="Animation_p0b05"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enemy1_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ygodg"]
+resource_name = "animationEnemy"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enemy1_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oxxk2"]
+_data = {
+&"RESET": SubResource("Animation_p0b05"),
+&"animationEnemy": SubResource("Animation_ygodg")
+}
+
+[node name="enemy" type="Area2D" groups=["enemy", "laser"]]
+position = Vector2(682, 272)
+script = ExtResource("1_j8h1m")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy", "laser"]]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_ncemp")
+
+[node name="enemy1_sprite" type="Sprite2D" parent="." groups=["enemy"]]
+rotation = 1.5708
+texture = ExtResource("1_mhh1f")
+hframes = 3
+
+[node name="AnimationEnemy1" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oxxk2")
+}
+speed_scale = 0.6
+
+[node name="Label" type="Label" parent="." groups=["enemy"]]
+offset_left = -14.0
+offset_top = -58.0
+offset_right = 4.0
+offset_bottom = -41.0
+theme_override_fonts/font = ExtResource("3_l26jj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

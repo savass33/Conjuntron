@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7xm1482xh1rn"
+path="res://.godot/imported/distant-explosion-47562.mp3-80c226e2d2661e116cace01b936ea1c2.mp3str"
+
+[deps]
+
+source_file="res://MathRun Files/distant-explosion-47562.mp3"
+dest_files=["res://.godot/imported/distant-explosion-47562.mp3-80c226e2d2661e116cace01b936ea1c2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

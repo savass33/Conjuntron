@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://3qstd4a4byqm"]
+
+[sub_resource type="GDScript" id="GDScript_vguja"]
+script/source = "extends Camera2D
+
+@onready var player = get_parent().get_node(\"player\")  # Obtém referência ao nó player
+
+func _ready():
+	make_current()  # Define esta câmera como a ativa
+	offset.y = 0  # Mantém a câmera fixa na altura
+
+func _process(delta):
+	# Faz a câmera seguir o jogador apenas na direção X
+	global_position.x = player.global_position.x
+	# Define a posição Y fixa para a câmera
+	global_position.y = 0  # Ajuste para a altura desejada, se necessário
+"
+
+[node name="HUD" type="Camera2D"]
+position = Vector2(575, 325)
+script = SubResource("GDScript_vguja")

@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvidq6788luvp"]
+
+[ext_resource type="Texture2D" uid="uid://cw11b1u815eu7" path="res://assetsnew/Pixel SHMUP Free/Explosion/Spritesheet/explosion-spritesheet.png" id="1_g351c"]
+[ext_resource type="Script" uid="uid://dmabjrmlynf52" path="res://cenas/explosion.gd" id="1_rbrgo"]
+[ext_resource type="AudioStream" uid="uid://b7xm1482xh1rn" path="res://MathRun Files/distant-explosion-47562.mp3" id="3_a7cga"]
+
+[sub_resource type="Animation" id="Animation_4vhy6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sak8i"]
+resource_name = "explosion"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.366667, 0.533333, 0.7, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sg4b3"]
+_data = {
+&"RESET": SubResource("Animation_4vhy6"),
+&"explosion": SubResource("Animation_sak8i")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rbrgo")
+metadata/_edit_group_ = true
+
+[node name="Explosion-spritesheet" type="Sprite2D" parent="."]
+texture = ExtResource("1_g351c")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Explosion-spritesheet")
+libraries = {
+"": SubResource("AnimationLibrary_sg4b3")
+}
+autoplay = "explosion"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a7cga")

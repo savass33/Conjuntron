@@ -1,0 +1,405 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpc25hy3gur5y"]
+
+[ext_resource type="Script" uid="uid://bvl43xvuggptu" path="res://cenas/main.gd" id="1_jecvj"]
+[ext_resource type="Texture2D" uid="uid://7dcqjx4cw2vr" path="res://assetsnew/step_1.png" id="1_o84ow"]
+[ext_resource type="PackedScene" uid="uid://dcsror2xkh3cn" path="res://cenas/player.tscn" id="2_xkq8i"]
+[ext_resource type="Script" uid="uid://cmauyo0kx3ihj" path="res://cenas/player.gd" id="3_umfr5"]
+[ext_resource type="PackedScene" uid="uid://dpftw6uhudqk" path="res://cenas/enemy.tscn" id="4_a0786"]
+[ext_resource type="Script" uid="uid://d3uhgexqfp5u" path="res://cenas/camera_2d.gd" id="7_upbu6"]
+[ext_resource type="FontFile" uid="uid://5wbtgsib3sx8" path="res://assetsnew/font/perguntas.ttf" id="8_oa1km"]
+[ext_resource type="AudioStream" uid="uid://bbiixjfln4j0k" path="res://MathRun Files/pop-268648.mp3" id="11_lebl8"]
+[ext_resource type="AudioStream" uid="uid://dwegc2v137hj7" path="res://MathRun Files/collect-points-190037.mp3" id="11_u3jeu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox1c5"]
+size = Vector2(71, 640)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_jecvj")
+
+[node name="player" parent="." instance=ExtResource("2_xkq8i")]
+script = ExtResource("3_umfr5")
+
+[node name="timerDisparo2" type="Timer" parent="player"]
+
+[node name="enemy" parent="." instance=ExtResource("4_a0786")]
+visible = false
+position = Vector2(633, -28)
+
+[node name="Scenarios" type="Node" parent="."]
+
+[node name="Scenario" type="Sprite2D" parent="Scenarios"]
+z_index = -1
+position = Vector2(575, 327)
+scale = Vector2(1.79844, 1.80278)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario2" type="Sprite2D" parent="Scenarios"]
+z_index = -1
+position = Vector2(1703, 332)
+scale = Vector2(1.73125, 1.83056)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario3" type="Sprite2D" parent="Scenarios"]
+z_index = -1
+position = Vector2(2792, 325)
+scale = Vector2(1.79844, 1.80278)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario4" type="Sprite2D" parent="Scenarios"]
+z_index = -1
+position = Vector2(3907, 329)
+scale = Vector2(1.73125, 1.83056)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario5" type="Sprite2D" parent="Scenarios"]
+z_index = -1
+position = Vector2(8332, 331)
+scale = Vector2(1.73125, 1.83056)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario6" type="Sprite2D" parent="Scenarios"]
+z_index = -1
+position = Vector2(9440, 331)
+scale = Vector2(1.73125, 1.83056)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario7" type="Sprite2D" parent="Scenarios"]
+z_index = -1
+position = Vector2(7224, 331)
+scale = Vector2(1.73125, 1.83056)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario8" type="Sprite2D" parent="Scenarios"]
+z_index = -1
+position = Vector2(6116, 331)
+scale = Vector2(1.73125, 1.83056)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario9" type="Sprite2D" parent="Scenarios"]
+z_index = -1
+position = Vector2(5010, 332)
+scale = Vector2(1.73125, 1.83056)
+texture = ExtResource("1_o84ow")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(573, 323)
+limit_left = 0
+limit_top = 0
+script = ExtResource("7_upbu6")
+
+[node name="score" type="Label" parent="Camera2D"]
+z_index = 1
+offset_left = -780.0
+offset_top = -185.0
+offset_right = -712.0
+offset_bottom = -168.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "SCORE: "
+
+[node name="pontos" type="Label" parent="Camera2D"]
+z_index = 1
+offset_left = -628.0
+offset_top = -185.0
+offset_right = -616.0
+offset_bottom = -168.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "0"
+
+[node name="pergunta1" type="Label" parent="."]
+offset_left = 410.0
+offset_top = 162.0
+offset_right = 650.0
+offset_bottom = 198.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+text = "pergunta 1"
+
+[node name="pergunta2" type="Label" parent="."]
+offset_left = 1328.0
+offset_top = 145.0
+offset_right = 1582.0
+offset_bottom = 181.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+
+[node name="pergunta3" type="Label" parent="."]
+offset_left = 2253.0
+offset_top = 139.0
+offset_right = 2506.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+
+[node name="pergunta4" type="Label" parent="."]
+offset_left = 3149.0
+offset_top = 142.0
+offset_right = 3403.0
+offset_bottom = 178.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+
+[node name="pergunta5" type="Label" parent="."]
+offset_left = 4067.0
+offset_top = 142.0
+offset_right = 4321.0
+offset_bottom = 178.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+
+[node name="pergunta6" type="Label" parent="."]
+offset_left = 4975.0
+offset_top = 139.0
+offset_right = 5229.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+
+[node name="pergunta7" type="Label" parent="."]
+offset_left = 5820.0
+offset_top = 144.0
+offset_right = 6074.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+
+[node name="pergunta8" type="Label" parent="."]
+offset_left = 6706.0
+offset_top = 142.0
+offset_right = 6963.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+
+[node name="pergunta9" type="Label" parent="."]
+offset_left = 7606.0
+offset_top = 146.0
+offset_right = 7860.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+
+[node name="pergunta10" type="Label" parent="."]
+offset_left = 8548.0
+offset_top = 143.0
+offset_right = 8802.0
+offset_bottom = 179.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+
+[node name="Areas" type="Node" parent="."]
+
+[node name="area1" type="Area2D" parent="Areas" groups=["laser"]]
+position = Vector2(975, 205)
+collision_layer = 2
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area1"]
+position = Vector2(-25.5, 119)
+shape = SubResource("RectangleShape2D_ox1c5")
+
+[node name="area2" type="Area2D" parent="Areas" groups=["laser"]]
+position = Vector2(1914, 313)
+collision_layer = 4
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area2"]
+shape = SubResource("RectangleShape2D_ox1c5")
+
+[node name="area3" type="Area2D" parent="Areas" groups=["laser"]]
+position = Vector2(2822, 323)
+collision_layer = 2
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area3"]
+shape = SubResource("RectangleShape2D_ox1c5")
+
+[node name="area4" type="Area2D" parent="Areas"]
+position = Vector2(3743, 328)
+collision_layer = 2
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area4"]
+shape = SubResource("RectangleShape2D_ox1c5")
+
+[node name="area5" type="Area2D" parent="Areas"]
+position = Vector2(4680, 322)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area5"]
+shape = SubResource("RectangleShape2D_ox1c5")
+
+[node name="area6" type="Area2D" parent="Areas"]
+position = Vector2(5532, 319)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area6"]
+shape = SubResource("RectangleShape2D_ox1c5")
+
+[node name="area7" type="Area2D" parent="Areas"]
+position = Vector2(6342, 328)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area7"]
+shape = SubResource("RectangleShape2D_ox1c5")
+
+[node name="area8" type="Area2D" parent="Areas"]
+position = Vector2(7258, 320)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area8"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ox1c5")
+
+[node name="area9" type="Area2D" parent="Areas"]
+position = Vector2(8191, 316)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area9"]
+shape = SubResource("RectangleShape2D_ox1c5")
+
+[node name="areaWin" type="Area2D" parent="Areas"]
+position = Vector2(9151, 322)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/areaWin"]
+shape = SubResource("RectangleShape2D_ox1c5")
+
+[node name="Questoes" type="Node" parent="."]
+
+[node name="Questao1" type="Label" parent="Questoes"]
+offset_left = 444.0
+offset_top = 115.0
+offset_right = 542.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "question 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Questao2" type="Label" parent="Questoes"]
+offset_left = 1365.0
+offset_top = 115.0
+offset_right = 1469.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "QUESTION 2"
+
+[node name="Questao3" type="Label" parent="Questoes"]
+offset_left = 2288.0
+offset_top = 115.0
+offset_right = 2391.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "QUESTION 3"
+
+[node name="Questao4" type="Label" parent="Questoes"]
+offset_left = 3194.0
+offset_top = 116.0
+offset_right = 3298.0
+offset_bottom = 133.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "QUESTION 4"
+
+[node name="Questao5" type="Label" parent="Questoes"]
+offset_left = 4104.0
+offset_top = 114.0
+offset_right = 4208.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "QUESTION 5"
+
+[node name="Questao6" type="Label" parent="Questoes"]
+offset_left = 5015.0
+offset_top = 115.0
+offset_right = 5119.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "QUESTION 6"
+
+[node name="Questao7" type="Label" parent="Questoes"]
+offset_left = 5863.0
+offset_top = 115.0
+offset_right = 5967.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "QUESTION 7"
+
+[node name="Questao8" type="Label" parent="Questoes"]
+offset_left = 6745.0
+offset_top = 115.0
+offset_right = 6849.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "QUESTION 8"
+
+[node name="Questao9" type="Label" parent="Questoes"]
+offset_left = 7652.0
+offset_top = 115.0
+offset_right = 7756.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "QUESTION 9"
+
+[node name="Questao10" type="Label" parent="Questoes"]
+offset_left = 8590.0
+offset_top = 115.0
+offset_right = 8736.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "QUESTION 10"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="acertaQuestao" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_u3jeu")
+volume_db = 24.0
+
+[node name="apareceQuestao" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_lebl8")
+volume_db = 24.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 21.0
+offset_right = 146.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 30
+text = "GOAL:"
+
+[node name="metaPontos" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 212.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 30
+text = "9000"
+
+[connection signal="timeout" from="player/timerDisparo2" to="player" method="_on_timer_disparo_2_timeout"]
+[connection signal="body_entered" from="Areas/area1" to="." method="_on_area_1_body_entered"]
+[connection signal="body_entered" from="Areas/area2" to="." method="_on_area_2_body_entered"]
+[connection signal="body_entered" from="Areas/area3" to="." method="_on_area_3_body_entered"]
+[connection signal="body_entered" from="Areas/area4" to="." method="_on_area_4_body_entered"]
+[connection signal="body_entered" from="Areas/area5" to="." method="_on_area_5_body_entered"]
+[connection signal="body_entered" from="Areas/area6" to="." method="_on_area_6_body_entered"]
+[connection signal="body_entered" from="Areas/area7" to="." method="_on_area_7_body_entered"]
+[connection signal="body_entered" from="Areas/area8" to="." method="_on_area_8_body_entered"]
+[connection signal="body_entered" from="Areas/area9" to="." method="_on_area_9_body_entered"]
+[connection signal="body_entered" from="Areas/areaWin" to="." method="_on_area_win_body_entered"]

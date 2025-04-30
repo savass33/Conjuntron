@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpc25hy3gur5y"]
+
+[ext_resource type="Script" path="res://cenas/main.gd" id="1_jecvj"]
+[ext_resource type="Texture2D" uid="uid://7dcqjx4cw2vr" path="res://assetsnew/step_1.png" id="1_o84ow"]
+[ext_resource type="PackedScene" uid="uid://dcsror2xkh3cn" path="res://cenas/player.tscn" id="2_xkq8i"]
+[ext_resource type="Script" path="res://cenas/player.gd" id="3_umfr5"]
+[ext_resource type="PackedScene" uid="uid://dpftw6uhudqk" path="res://cenas/enemy.tscn" id="4_a0786"]
+[ext_resource type="PackedScene" uid="uid://bc06he0wuy4rg" path="res://cenas/enemy_2.tscn" id="4_y5ir1"]
+[ext_resource type="Script" path="res://cenas/enemy_2.gd" id="6_4hq53"]
+[ext_resource type="Script" path="res://cenas/camera_2d.gd" id="7_upbu6"]
+[ext_resource type="FontFile" uid="uid://5wbtgsib3sx8" path="res://assetsnew/font/perguntas.ttf" id="8_oa1km"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4ae6"]
+size = Vector2(34, 642)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_jecvj")
+
+[node name="player" parent="." instance=ExtResource("2_xkq8i")]
+script = ExtResource("3_umfr5")
+
+[node name="enemy" parent="." instance=ExtResource("4_a0786")]
+visible = false
+
+[node name="enemy2" parent="." instance=ExtResource("4_y5ir1")]
+visible = false
+script = ExtResource("6_4hq53")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Scenario" type="Sprite2D" parent="Node"]
+z_index = -1
+position = Vector2(543, 328)
+scale = Vector2(1.79844, 1.80278)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario2" type="Sprite2D" parent="Node"]
+z_index = -1
+position = Vector2(1705, 330)
+scale = Vector2(1.73125, 1.83056)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2833.5, 332.5)
+scale = Vector2(1.79844, 1.80278)
+texture = ExtResource("1_o84ow")
+
+[node name="Scenario2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3957, 331)
+scale = Vector2(1.73125, 1.83056)
+texture = ExtResource("1_o84ow")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 327)
+limit_left = 0
+limit_top = 0
+script = ExtResource("7_upbu6")
+
+[node name="score" type="Label" parent="Camera2D"]
+z_index = 1
+offset_left = -573.0
+offset_top = -184.0
+offset_right = -505.0
+offset_bottom = -167.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "SCORE: "
+
+[node name="pontos" type="Label" parent="Camera2D"]
+z_index = 1
+offset_left = -420.0
+offset_top = -186.0
+offset_right = -408.0
+offset_bottom = -169.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+text = "0"
+
+[node name="pergunta1" type="Label" parent="."]
+offset_left = 405.0
+offset_top = 142.0
+offset_right = 445.0
+offset_bottom = 165.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+text = "pergunta 1"
+
+[node name="pergunta3" type="Label" parent="."]
+offset_left = 2424.0
+offset_top = 125.0
+offset_right = 2549.0
+offset_bottom = 161.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+text = "pergunta 3"
+
+[node name="pergunta2" type="Label" parent="."]
+offset_left = 1328.0
+offset_top = 145.0
+offset_right = 1582.0
+offset_bottom = 181.0
+theme_override_fonts/font = ExtResource("8_oa1km")
+theme_override_font_sizes/font_size = 36
+text = "pergunta 2"
+
+[node name="TransicaoArea" type="Area2D" parent="."]
+position = Vector2(1130, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransicaoArea"]
+position = Vector2(7, 2)
+shape = SubResource("RectangleShape2D_h4ae6")
+
+[connection signal="body_entered" from="TransicaoArea" to="." method="_on_TransicaoArea_body_entered"]

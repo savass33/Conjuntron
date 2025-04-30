@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ua8qryte1rnl"
+path="res://.godot/imported/musictheme.mp3-6cdf1de2df9275abd05fd472342b07c3.mp3str"
+
+[deps]
+
+source_file="res://MathRun Files/musictheme.mp3"
+dest_files=["res://.godot/imported/musictheme.mp3-6cdf1de2df9275abd05fd472342b07c3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

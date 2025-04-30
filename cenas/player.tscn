@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcsror2xkh3cn"]
+
+[ext_resource type="Texture2D" uid="uid://bdqtpljyv1ca8" path="res://assetsnew/Pixel SHMUP Free/spritesheet_player.png" id="2_sramd"]
+[ext_resource type="AudioStream" uid="uid://cgn4bvtbo8xr0" path="res://MathRun Files/the-sound-of-a-powerful-shot-from-a-laser-gun.mp3" id="2_xxt00"]
+
+[sub_resource type="GDScript" id="GDScript_2mjin"]
+script/source = "extends CharacterBody2D
+
+# Velocidade de movimento do jogador
+var speed = 200
+
+
+
+func _process(delta):
+	# Vetor de movimento inicializado como (0,0)
+	var velocity = Vector2.ZERO
+
+	# Controle de movimento com W, A, S, D
+	if Input.is_action_pressed(\"ui_up\"):
+		velocity.y -= 1
+	if Input.is_action_pressed(\"ui_down\"):
+		velocity.y += 1
+	if Input.is_action_pressed(\"ui_left\"):
+		velocity.x -= 1
+	if Input.is_action_pressed(\"ui_right\"):
+		velocity.x += 1
+
+	# Normaliza para manter velocidade constante em diagonais
+	velocity = velocity.normalized() * speed
+
+	# Aplica o movimento ao jogador
+	move_and_slide()
+
+func _on_timer_disparo_timeout() -> void:
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5k00"]
+size = Vector2(43, 47)
+
+[sub_resource type="Animation" id="Animation_562uo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bc0jf"]
+resource_name = "animation_Player"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k11wa"]
+_data = {
+&"RESET": SubResource("Animation_562uo"),
+&"animation_Player": SubResource("Animation_bc0jf")
+}
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(131, 331)
+collision_layer = 2
+collision_mask = 2
+script = SubResource("GDScript_2mjin")
+metadata/_edit_group_ = true
+
+[node name="player_sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+rotation = 1.5708
+texture = ExtResource("2_sramd")
+hframes = 3
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(2, 2)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_e5k00")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k11wa")
+}
+speed_scale = 0.6
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xxt00")

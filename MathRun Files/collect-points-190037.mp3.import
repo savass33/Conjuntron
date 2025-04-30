@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwegc2v137hj7"
+path="res://.godot/imported/collect-points-190037.mp3-f94094a4d610587262da49500ca625f9.mp3str"
+
+[deps]
+
+source_file="res://MathRun Files/collect-points-190037.mp3"
+dest_files=["res://.godot/imported/collect-points-190037.mp3-f94094a4d610587262da49500ca625f9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjx5xfdno0cck"]
+
+[ext_resource type="Script" uid="uid://cf6m8djghfe6f" path="res://cenas/game_over.gd" id="1_lfb60"]
+[ext_resource type="FontFile" uid="uid://5wbtgsib3sx8" path="res://assetsnew/font/perguntas.ttf" id="1_xa546"]
+[ext_resource type="Texture2D" uid="uid://bf8y8sdr0iggc" path="res://assetsnew/Pixel SHMUP Free/Space Background/stars_2.png" id="2_gaioq"]
+[ext_resource type="Texture2D" uid="uid://m252p78358su" path="res://assetsnew/Pixel SHMUP Free/Space Background/nebula_1.png" id="3_0skla"]
+[ext_resource type="Texture2D" uid="uid://dp6j0p6lc20eo" path="res://assetsnew/Pixel SHMUP Free/Space Background/nebula_2.png" id="4_n6now"]
+[ext_resource type="Texture2D" uid="uid://d2oxe2124f5an" path="res://assetsnew/Pixel SHMUP Free/Space Background/stars_1.png" id="5_jd1if"]
+[ext_resource type="AudioStream" uid="uid://bu4n6e8014ee" path="res://MathRun Files/game-over-160612.mp3" id="7_tun73"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_lfb60")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = 248.0
+offset_top = 37.0
+offset_right = 893.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("1_xa546")
+theme_override_font_sizes/font_size = 100
+text = "game over"
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+offset_left = 422.0
+offset_top = 472.0
+offset_right = 728.0
+offset_bottom = 531.0
+theme_override_fonts/font = ExtResource("1_xa546")
+theme_override_font_sizes/font_size = 50
+text = "TRY AGAIN"
+flat = true
+
+[node name="Stars2" type="Sprite2D" parent="."]
+position = Vector2(525, 315)
+scale = Vector2(1.17593, 0.391668)
+texture = ExtResource("2_gaioq")
+
+[node name="Stars3" type="Sprite2D" parent="."]
+position = Vector2(858, 318.5)
+scale = Vector2(2.14815, 1.33542)
+texture = ExtResource("2_gaioq")
+
+[node name="Nebula1" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(143, 303)
+texture = ExtResource("3_0skla")
+
+[node name="Nebula2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(916, 514)
+texture = ExtResource("4_n6now")
+
+[node name="Stars1" type="Sprite2D" parent="."]
+position = Vector2(903, 323.5)
+scale = Vector2(1.83704, 1.33125)
+texture = ExtResource("5_jd1if")
+
+[node name="Stars4" type="Sprite2D" parent="."]
+position = Vector2(305, 321)
+scale = Vector2(2.2, 1.33333)
+texture = ExtResource("2_gaioq")
+
+[node name="musicaGameOver" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(143, 303)
+stream = ExtResource("7_tun73")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
