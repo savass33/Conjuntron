@@ -97,7 +97,7 @@ shape = SubResource("RectangleShape2D_e5k00")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_k11wa")
+&"": SubResource("AnimationLibrary_k11wa")
 }
 speed_scale = 0.6
 
