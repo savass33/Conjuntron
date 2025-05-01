@@ -283,6 +283,7 @@ shape = SubResource("RectangleShape2D_ox1c5")
 [node name="Questoes" type="Node" parent="."]
 
 [node name="Questao1" type="Label" parent="Questoes"]
+visible = false
 offset_left = 444.0
 offset_top = 115.0
 offset_right = 542.0
@@ -293,6 +294,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Questao2" type="Label" parent="Questoes"]
+visible = false
 offset_left = 1365.0
 offset_top = 115.0
 offset_right = 1469.0
@@ -301,6 +303,7 @@ theme_override_fonts/font = ExtResource("8_oa1km")
 text = "QUESTION 2"
 
 [node name="Questao3" type="Label" parent="Questoes"]
+visible = false
 offset_left = 2288.0
 offset_top = 115.0
 offset_right = 2391.0
@@ -309,6 +312,7 @@ theme_override_fonts/font = ExtResource("8_oa1km")
 text = "QUESTION 3"
 
 [node name="Questao4" type="Label" parent="Questoes"]
+visible = false
 offset_left = 3194.0
 offset_top = 116.0
 offset_right = 3298.0
@@ -317,6 +321,7 @@ theme_override_fonts/font = ExtResource("8_oa1km")
 text = "QUESTION 4"
 
 [node name="Questao5" type="Label" parent="Questoes"]
+visible = false
 offset_left = 4104.0
 offset_top = 114.0
 offset_right = 4208.0
@@ -325,6 +330,7 @@ theme_override_fonts/font = ExtResource("8_oa1km")
 text = "QUESTION 5"
 
 [node name="Questao6" type="Label" parent="Questoes"]
+visible = false
 offset_left = 5015.0
 offset_top = 115.0
 offset_right = 5119.0
@@ -333,6 +339,7 @@ theme_override_fonts/font = ExtResource("8_oa1km")
 text = "QUESTION 6"
 
 [node name="Questao7" type="Label" parent="Questoes"]
+visible = false
 offset_left = 5863.0
 offset_top = 115.0
 offset_right = 5967.0
@@ -341,6 +348,7 @@ theme_override_fonts/font = ExtResource("8_oa1km")
 text = "QUESTION 7"
 
 [node name="Questao8" type="Label" parent="Questoes"]
+visible = false
 offset_left = 6745.0
 offset_top = 115.0
 offset_right = 6849.0
@@ -349,6 +357,7 @@ theme_override_fonts/font = ExtResource("8_oa1km")
 text = "QUESTION 8"
 
 [node name="Questao9" type="Label" parent="Questoes"]
+visible = false
 offset_left = 7652.0
 offset_top = 115.0
 offset_right = 7756.0
@@ -357,6 +366,7 @@ theme_override_fonts/font = ExtResource("8_oa1km")
 text = "QUESTION 9"
 
 [node name="Questao10" type="Label" parent="Questoes"]
+visible = false
 offset_left = 8590.0
 offset_top = 115.0
 offset_right = 8736.0

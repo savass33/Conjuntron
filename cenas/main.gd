@@ -39,7 +39,7 @@ func gerar_perguntas():
 				pergunta = "Qual elemento é conjunto dos números naturais?"
 				resposta = "5"
 			1:
-				pergunta = "Qual conjunto inclui apenas números negativos?"
+				pergunta = "Qual conjunto inclui apenas números positivos e negativos?"
 				resposta = "Inteiros"
 			2:
 				pergunta = "Qual elemento pertence ao conjunto dos números racionais?"
@@ -60,8 +60,8 @@ func gerar_perguntas():
 				pergunta = "Conjunto vazio é representado por?"
 				resposta = "∅ ou {}"
 			8:
-				pergunta = "A função f(x) = x² é um exemplo de que tipo de função?"
-				resposta = "Quadrática"
+				pergunta = "Qual função não repete valores de imagem?"
+				resposta = "Injetora"
 			9:
 				pergunta = "x ∈ A significa?"
 				resposta = "x pertence a A"
@@ -126,7 +126,7 @@ func spawn_enemies():
 		["2", "6", "8"],
 		["12", "14", "16"],
 		["vazio", "sem elementos", "nulo"],
-		["Constante", "Afim", "Exponencial"],
+		["Sobrejetora", "Bijetora", "Composta"],
 		["x está em A", "x dentro de A", "x existe em A"]
 	]
 	var alternativas = alternativas_possiveis[questao_atual]
@@ -173,9 +173,7 @@ func destruir_inimigos():
 	inimigos.clear()
 
 func _process(delta):
-	if pontos >= pontos_meta:
-		encerrar_jogoVitória()
-	elif Player.SPEED <= 0:
+	if Player.SPEED <= 0:
 		encerrar_jogoDerrota()
 
 func encerrar_jogoVitória():
