@@ -228,7 +228,7 @@ shape = SubResource("RectangleShape2D_ox1c5")
 [node name="area5" type="Area2D" parent="Areas"]
 position = Vector2(4680, 322)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area5"]
@@ -237,7 +237,7 @@ shape = SubResource("RectangleShape2D_ox1c5")
 [node name="area6" type="Area2D" parent="Areas"]
 position = Vector2(5532, 319)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area6"]
@@ -246,7 +246,7 @@ shape = SubResource("RectangleShape2D_ox1c5")
 [node name="area7" type="Area2D" parent="Areas"]
 position = Vector2(6342, 328)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area7"]
@@ -255,7 +255,7 @@ shape = SubResource("RectangleShape2D_ox1c5")
 [node name="area8" type="Area2D" parent="Areas"]
 position = Vector2(7258, 320)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area8"]
@@ -265,7 +265,7 @@ shape = SubResource("RectangleShape2D_ox1c5")
 [node name="area9" type="Area2D" parent="Areas"]
 position = Vector2(8191, 316)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/area9"]
@@ -274,7 +274,7 @@ shape = SubResource("RectangleShape2D_ox1c5")
 [node name="areaWin" type="Area2D" parent="Areas"]
 position = Vector2(9151, 322)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/areaWin"]
@@ -381,7 +381,7 @@ offset_right = 146.0
 offset_bottom = 57.0
 theme_override_fonts/font = ExtResource("8_oa1km")
 theme_override_font_sizes/font_size = 30
-text = "GOAL:"
+text = "META:"
 
 [node name="metaPontos" type="Label" parent="Label"]
 layout_mode = 0

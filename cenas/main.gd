@@ -1,4 +1,3 @@
-### Arquivo: main.gd (adaptado para conjuntos, funções, relações e sequências)
 extends Node2D
 
 @onready var pergunta_labels = [$pergunta1, $pergunta2, $pergunta3, $pergunta4, $pergunta5, $pergunta6, $pergunta7, $pergunta8, $pergunta9, $pergunta10]
@@ -34,17 +33,17 @@ func gerar_perguntas():
 	correct_answers.clear()
 	for i in range(num_perguntas):
 		var pergunta = ""
-		var resposta = 0
+		var resposta = ""
 		match i:
 			0:
-				pergunta = "Qual é o conjunto dos números naturais?"
-				resposta = "N = {0,1,2,...}"
+				pergunta = "Qual elemento é conjunto dos números naturais?"
+				resposta = "5"
 			1:
-				pergunta = "Qual conjunto inclui números negativos?"
-				resposta = "Z = {...,-2,-1,0,1,...}"
+				pergunta = "Qual conjunto inclui apenas números negativos?"
+				resposta = "Inteiros"
 			2:
-				pergunta = "Qual é o conjunto dos números racionais?"
-				resposta = "Q = a/b, b\u22600"
+				pergunta = "Qual elemento pertence ao conjunto dos números racionais?"
+				resposta = "1/4"
 			3:
 				pergunta = "Qual é a imagem da função f(x)=x+2 para x=1?"
 				resposta = "3"
@@ -61,8 +60,8 @@ func gerar_perguntas():
 				pergunta = "Conjunto vazio é representado por?"
 				resposta = "∅ ou {}"
 			8:
-				pergunta = "Função constante tem imagem?"
-				resposta = "Um só valor"
+				pergunta = "A função f(x) = x² é um exemplo de que tipo de função?"
+				resposta = "Quadrática"
 			9:
 				pergunta = "x ∈ A significa?"
 				resposta = "x pertence a A"
@@ -73,7 +72,14 @@ func gerar_perguntas():
 
 func atualizar_pergunta():
 	if questao_atual < num_perguntas:
-		pergunta_labels[questao_atual].text = perguntas[questao_atual]
+		var texto = perguntas[questao_atual]
+		if texto.length() > 50:
+			var meio = texto.find(" ", texto.length() / 2)
+			if meio != -1:
+				texto = texto.substr(0, meio) + "\n" + texto.substr(meio + 1)
+		pergunta_labels[questao_atual].text = texto
+		pergunta_labels[questao_atual].autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		pergunta_labels[questao_atual].set_size(Vector2(600, 80))
 	else:
 		encerrar_jogoVitória()
 	$apareceQuestao.play()
@@ -109,10 +115,25 @@ func spawn_enemies():
 	var certa = correct_answers[questao_atual]
 	respostas_usadas[certa] = true
 	spawn_enemy(positions[0], certa)
+
+	# Gerar alternativas incorretas coerentes com a pergunta
+	var alternativas_possiveis = [
+		["-10", "π", "√-7"],
+		["Irracionais", "Racionais", "Reais"],
+		["1/4", "π", "√2"],
+		["2", "4", "5"],
+		["Par ordenado", "Dizima periódica", "Raíz Quadrada"],
+		["2", "6", "8"],
+		["12", "14", "16"],
+		["vazio", "sem elementos", "nulo"],
+		["Constante", "Afim", "Exponencial"],
+		["x está em A", "x dentro de A", "x existe em A"]
+	]
+	var alternativas = alternativas_possiveis[questao_atual]
 	for i in range(1, 3):
 		var incorreta = null
 		while incorreta == null:
-			var tentativa = "Alternativa "+str(randi_range(1, 100))
+			var tentativa = alternativas.pick_random()
 			if tentativa != certa and not respostas_usadas.has(tentativa):
 				incorreta = tentativa
 		respostas_usadas[incorreta] = true
@@ -172,51 +193,57 @@ func _on_area_1_body_entered(body):
 		gerar_inimigos_da_proxima_questao()
 	elif body.is_in_group("laser"):
 		body.queue_free()
-		
+
 func _on_area_2_body_entered(body):
 	if body.is_in_group("player"):
 		gerar_inimigos_da_proxima_questao()
 	elif body.is_in_group("laser"):
 		body.queue_free()
-		
+
 func _on_area_3_body_entered(body):
 	if body.is_in_group("player"):
 		gerar_inimigos_da_proxima_questao()
 	elif body.is_in_group("laser"):
 		body.queue_free()
-		
+
 func _on_area_4_body_entered(body):
 	if body.is_in_group("player"):
 		gerar_inimigos_da_proxima_questao()
 	elif body.is_in_group("laser"):
 		body.queue_free()
-		
+
 func _on_area_5_body_entered(body):
 	if body.is_in_group("player"):
 		gerar_inimigos_da_proxima_questao()
 	elif body.is_in_group("laser"):
 		body.queue_free()
-		
+
 func _on_area_6_body_entered(body):
 	if body.is_in_group("player"):
 		gerar_inimigos_da_proxima_questao()
 	elif body.is_in_group("laser"):
 		body.queue_free()
-		
+
 func _on_area_7_body_entered(body):
 	if body.is_in_group("player"):
 		gerar_inimigos_da_proxima_questao()
 	elif body.is_in_group("laser"):
 		body.queue_free()
-		
+
 func _on_area_8_body_entered(body):
 	if body.is_in_group("player"):
 		gerar_inimigos_da_proxima_questao()
 	elif body.is_in_group("laser"):
 		body.queue_free()
-		
+
 func _on_area_9_body_entered(body):
 	if body.is_in_group("player"):
 		gerar_inimigos_da_proxima_questao()
 	elif body.is_in_group("laser"):
 		body.queue_free()
+
+func _on_area_win_body_entered(body: Node2D) -> void:
+	if pontos >= pontos_meta:
+		encerrar_jogoVitória()
+	else:
+		encerrar_jogoDerrota()
